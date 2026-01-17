@@ -1,0 +1,27 @@
+---
+import Layout from '../layouts/Layout.astro';
+import { getCollection } from 'astro:content';
+import { Image } from 'astro:assets';
+import aboutImage from '../assets/about-us.png';
+import TeamCard from '../components/TeamCard.astro';
+
+const team = (await getCollection('team')).sort((a, b) => a.data.weight - b.data.weight);
+---
+
+<Layout title="About Us">
+  <div class="bg-[#1a365d] min-h-screen text-white">
+
+      <!-- Club Organizers Section -->
+      <section class="py-20 bg-[#152c4e]">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-4xl font-bold text-[#ff8c69] text-center mb-16">Club Organizers</h2>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-12 justify-items-center">
+                {team.map(member => (
+                    <TeamCard member={member} />
+                ))}
+            </div>
+        </div>
+      </section>
+  </div>
+</Layout>

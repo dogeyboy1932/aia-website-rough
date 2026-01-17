@@ -58,27 +58,10 @@ const team = defineCollection({
   loader: glob({ pattern: "**/*.{md,mdx}", base: "./src/content/team" }),
   schema: ({ image }) => z.object({
     name: z.string(),
-    role: z.enum([
-      'Principal Investigator', 
-      'Professor', 
-      'Associate Professor',
-      'Assistant Professor',
-      'Postdoc', 
-      'Research Assistant',
-      'PhD Student', 
-      'Master Student', 
-      'Undergraduate', 
-      'Alumni'
-    ]),
-    title: z.array(z.string()).optional(), // For specific academic titles like "Academician", "Changjiang Scholar"
-    avatar: image(),
-    bio: z.string().optional(), // Short bio for card
+    title: z.string(),
+    avatar: image().optional(),
+    discord: z.string().optional(),
     email: z.string().optional(),
-    website: z.string().optional(),
-    linkedin: z.string().optional(),
-    github: z.string().optional(),
-    twitter: z.string().optional(),
-    googleScholar: z.string().optional(),
     weight: z.number().default(100),
   }),
 });
