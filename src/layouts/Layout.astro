@@ -11,6 +11,9 @@ interface Props {
 }
 
 const { title, description = SITE.description, footerBg = 'bg-[#13294B]' } = Astro.props;
+const footerColorMatch = footerBg.match(/\[(#[a-fA-F0-9]{3,6})\]/);
+const footerColor = footerColorMatch ? footerColorMatch[1] : '#13294B';
+const backgroundStyle = `background: linear-gradient(to bottom, #ffffff 0%, #ffffff 50%, ${footerColor} 50%, ${footerColor} 100%) fixed no-repeat`;
 const pageTitle = title ? `${title} | ${SITE.labName}` : `${SITE.labName} - ${SITE.university}`;
 
 // Define dynamic OG Image
@@ -30,7 +33,7 @@ const ogImage = new URL(`/og/${finalOgSlug}.png`, Astro.url);
 ---
 
 <!doctype html>
-<html lang="en">
+<html lang="en" style={backgroundStyle}>
   <head>
     <meta charset="UTF-8" />
     <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval'; style-src 'self' 'unsafe-inline'; img-src 'self' data: https:; font-src 'self'; connect-src 'self';" />

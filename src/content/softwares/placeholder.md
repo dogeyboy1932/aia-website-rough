@@ -1,0 +1,7 @@
+---
+title: "Placeholder Software"
+developers: ["Developer"]
+number: "000000"
+date: 2024-01-01
+---
+Placeholder content.
