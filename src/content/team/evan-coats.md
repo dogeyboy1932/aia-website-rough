@@ -1,6 +1,6 @@
 ---
 name: 'Evan Coats'
-title: 'PRESIDENT'
+title: 'President'
 avatar: ./../../assets/evan-coats.png
 email: 'efcoats2@illinois.edu'
 discord: '@evstasis'

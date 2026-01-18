@@ -1,6 +1,6 @@
 ---
 name: 'Rohan Thakkar'
-title: 'MEMBERSHIP DIRECTOR'
+title: 'Membership Director'
 
 email: 'rthak24@illinois.edu'
 discord: '@rt552'

@@ -1,6 +1,6 @@
 ---
 name: 'Sahib Bedi'
-title: 'TREASURER'
+title: 'Treasurer'
 
 email: 'sahibb2@illinois.edu'
 discord: '@sahib'

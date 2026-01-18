@@ -7,9 +7,10 @@ import { ui, defaultLang } from '../i18n/ui';
 interface Props {
   title?: string;
   description?: string;
+  footerBg?: string;
 }
 
-const { title, description = SITE.description } = Astro.props;
+const { title, description = SITE.description, footerBg = 'bg-[#13294B]' } = Astro.props;
 const pageTitle = title ? `${title} | ${SITE.labName}` : `${SITE.labName} - ${SITE.university}`;
 
 // Define dynamic OG Image
@@ -79,9 +80,9 @@ const ogImage = new URL(`/og/${finalOgSlug}.png`, Astro.url);
       <slot />
     </main>
     
-    <footer id="contact" class="bg-[#13294B] text-white pt-16 pb-8 border-t border-[#13294B]">
+    <footer id="contact" class={`${footerBg} text-white pt-8 pb-8 border-t border-transparent`}>
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-12 mb-16">
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-12 mb-8">
           
           <!-- Quick Links -->
           <div class="space-y-6">
@@ -89,7 +90,7 @@ const ogImage = new URL(`/og/${finalOgSlug}.png`, Astro.url);
             <ul class="space-y-3">
                <li><a href="/about" class="text-gray-300 hover:text-[#ff8c69] transition-colors">Team</a></li>
                <li><a href="/spring-2026" class="text-gray-300 hover:text-[#ff8c69] transition-colors">Get Involved</a></li>
-               <li><a href="/" class="text-gray-300 hover:text-[#ff8c69] transition-colors">Research</a></li>
+
                <li><a href="#contact" class="text-gray-300 hover:text-[#ff8c69] transition-colors">Contact</a></li>
             </ul>
           </div>

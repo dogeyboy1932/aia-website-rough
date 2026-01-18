@@ -8,7 +8,7 @@ import TeamCard from '../components/TeamCard.astro';
 const team = (await getCollection('team')).sort((a, b) => a.data.weight - b.data.weight);
 ---
 
-<Layout title="About Us">
+<Layout title="About Us" footerBg="bg-[#152c4e]">
   <div class="bg-[#1a365d] min-h-screen text-white">
 
       <!-- Club Organizers Section -->
