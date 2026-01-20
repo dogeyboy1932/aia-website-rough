@@ -1,4 +1,4 @@
-import heroImage from './assets/hero-real.jpg';
+import heroImage from './assets/hero-image-2026.jpg';
 
 export const SITE = {
   website: 'https://aia-illinois.netlify.app/', // TODO: Update with actual URL if known
