@@ -8,13 +8,11 @@ import TeamCard from '../components/TeamCard.astro';
 const team = (await getCollection('team')).sort((a, b) => a.data.weight - b.data.weight);
 ---
 
-<Layout title="About Us" footerBg="bg-[#152c4e]">
-  <div class="bg-[#1a365d] min-h-screen text-white">
-
-      <!-- Club Organizers Section -->
-      <section class="py-20 bg-[#152c4e]">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <h2 class="text-4xl font-bold text-[#ff8c69] text-center mb-16">Club Organizers</h2>
+<Layout title="About Us" footerBg="bg-[#13294B]">
+  <div class="bg-[#13294B] min-h-screen text-white pb-20">
+      <section class="py-24 px-4">
+        <div class="max-w-7xl mx-auto">
+            <h1 class="text-4xl md:text-5xl font-bold text-white text-center mb-16">Club Organizers</h1>
             
             <div class="grid grid-cols-1 md:grid-cols-3 gap-12 justify-items-center">
                 {team.map(member => (

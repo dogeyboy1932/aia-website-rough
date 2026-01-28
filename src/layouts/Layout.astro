@@ -36,7 +36,7 @@ const ogImage = new URL(`/og/${finalOgSlug}.png`, Astro.url);
 <html lang="en" style={backgroundStyle}>
   <head>
     <meta charset="UTF-8" />
-    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval'; style-src 'self' 'unsafe-inline'; img-src 'self' data: https:; font-src 'self'; connect-src 'self';" />
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval'; style-src 'self' 'unsafe-inline'; img-src 'self' data: https:; font-src 'self'; connect-src 'self'; frame-src 'self' https://calendar.google.com;" />
     <meta name="description" content={description} />
     <meta name="viewport" content="width=device-width" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
@@ -93,8 +93,7 @@ const ogImage = new URL(`/og/${finalOgSlug}.png`, Astro.url);
             <ul class="space-y-3">
                <li><a href="/about" class="text-gray-300 hover:text-[#ff8c69] transition-colors">Team</a></li>
                <li><a href="/spring-2026" class="text-gray-300 hover:text-[#ff8c69] transition-colors">Get Involved</a></li>
-
-
+               <li><a href="https://docs.google.com/document/d/18Kz1hDgpamH5gzV1f7B2RaeEaiOlC4iKiOR_EUOLZ3U/edit?usp=sharing" target="_blank" class="text-gray-300 hover:text-[#ff8c69] transition-colors">Resources</a></li>
             </ul>
           </div>
 
@@ -124,7 +123,7 @@ const ogImage = new URL(`/og/${finalOgSlug}.png`, Astro.url);
             <h2 class="text-xl font-bold text-white mb-4">Stay Updated</h2>
              <p class="text-gray-300">Join our mailing list for updates on programs, events, and research.</p>
              <div class="flex flex-col gap-3">
-                <a href="https://forms.gle/5u6F7mdaHLeikbR3A" target="_blank" class="w-full sm:w-auto bg-[#ff8c69] text-white font-bold py-3 px-6 rounded-md hover:bg-[#E84A27] transition-colors border border-transparent shadow-none text-center block">
+                <a href="https://forms.gle/YHxnF3y5LpnxF4s27" target="_blank" class="w-full sm:w-auto bg-[#ff8c69] text-white font-bold py-3 px-6 rounded-md hover:bg-[#E84A27] transition-colors border border-transparent shadow-none text-center block">
                    Sign Up
                 </a>
              </div>

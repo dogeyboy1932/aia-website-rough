@@ -6,6 +6,10 @@ import react from '@astrojs/react';
 
 // https://astro.build/config
 export default defineConfig({
+  server: {
+    port: 3333,
+  },
+
   compressHTML: true,
   build: {
     inlineStylesheets: 'always',
@@ -13,6 +17,9 @@ export default defineConfig({
   },
   vite: {
     plugins: [tailwindcss()],
+    server: {
+      allowedHosts: ['xps.rthak.com'],
+    },
     build: {
       assetsInlineLimit: 10240,
     }

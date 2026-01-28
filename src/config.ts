@@ -31,7 +31,7 @@ export const SITE = {
     { text: 'Get Involved', link: '/spring-2026', key: 'get_involved' },
 
     { text: 'Team', link: '/about', key: 'team' },
-    { text: 'Contact', link: '#contact', key: 'contact' },
+    { text: 'Events', link: '/events', key: 'events' },
   ],
 
   // Custom Pages
