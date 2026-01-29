@@ -61,6 +61,10 @@ export const SOCIALS = [
     link: 'https://discord.com/invite/hGcu53KNrY',
     active: true,
   },
+  {
+    link: 'https://www.instagram.com/aialignmentuiuc',
+    active: true,
+  },
 ];
 
 // Default language configuration
