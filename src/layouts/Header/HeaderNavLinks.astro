@@ -1,0 +1,57 @@
+---
+import { Search, ChevronDown } from 'lucide-react';
+
+interface NavItem {
+  link: string;
+  key: string;
+  text: string;
+}
+
+interface Props {
+  items: NavItem[];
+  mode: 'desktop' | 'mobile';
+}
+
+const { items, mode } = Astro.props;
+const isDesktop = mode === 'desktop';
+---
+
+<>
+  {items.map((item) => {
+    if (isDesktop && item.key === 'search') {
+      return (
+        <a
+          href={item.link}
+          class="p-2 text-gray-600 hover:text-blue-600 hover:bg-gray-50 rounded-full transition-colors"
+          aria-label={item.text}
+        >
+          <Search className="w-5 h-5" />
+        </a>
+      );
+    }
+
+    if (isDesktop) {
+      return (
+        <a
+          href={item.link}
+          class="text-sm font-medium text-gray-600 hover:text-blue-600 transition-colors"
+          data-i18n-key={`nav.${item.key}`}
+        >
+          {item.text}
+        </a>
+      );
+    }
+
+    return (
+      <a
+        href={item.link}
+        class="flex items-center justify-between w-full py-4 px-4 text-lg font-medium text-gray-800 hover:text-blue-600 hover:bg-gray-50 rounded-xl transition-all border-b border-gray-100 last:border-0"
+        data-i18n-key={`nav.${item.key}`}
+        @click="$dispatch('menu-close')"
+      >
+        <span>{item.text}</span>
+        <ChevronDown className="w-5 h-5 -rotate-90 text-gray-400" />
+      </a>
+    );
+  })}
+</>

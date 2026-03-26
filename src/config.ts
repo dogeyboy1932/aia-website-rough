@@ -29,13 +29,14 @@ export const SITE = {
   nav: [
     { text: 'Home', link: '/', key: 'home' },
     { text: 'Get Involved', link: '/spring-2026', key: 'get_involved' },
-
     { text: 'Team', link: '/about', key: 'team' },
     { text: 'Events', link: '/events', key: 'events' },
   ],
 
   // Custom Pages
-  customPages: [],
+  customPages: [
+    { text: 'Resources', link: '/resources', key: 'resources' },
+  ],
 
   // i18n Config
   i18n: {
@@ -69,3 +70,12 @@ export const SOCIALS = [
 
 // Default language configuration
 export const DEFAULT_LANG: 'zh' | 'en' | 'ja' | 'ko' | 'fr' | 'de' | 'es' | 'ru' = 'en';
+
+
+export const ResourcesUrl = "https://www.notion.so/Resources-31321c93aa7f80c3b556c584cefe4fb2?source=copy_link"
+
+export const LAYOUT_CONFIG = {
+  defaultFooterBg: 'bg-[#13294B]',
+  fallbackFooterColor: '#13294B',
+  ogSupportedPages: ['index', 'research', 'team', 'publications', 'news', 'join'] as const,
+};
