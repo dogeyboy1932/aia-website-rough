@@ -1,6 +1,6 @@
 ---
 import satori from 'satori';
-import { getFont } from '../utils/getFont';
+import { getFont } from '../../utils/getFont';
 
 interface Props {
   email: string;
@@ -28,7 +28,7 @@ try {
             height: '100%',
         },
         },
-    },
+    } as any,
     {
         height: 20, // text-sm line-height matches tailwind's 1.25rem = 20px
         fonts: [

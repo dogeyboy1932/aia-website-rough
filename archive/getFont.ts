@@ -1,4 +1,3 @@
-
 let fontCache: ArrayBuffer | null = null;
 
 export async function getFont() {
@@ -15,9 +14,9 @@ export async function getFont() {
     } catch (error) {
         console.warn('Failed to fetch font for email generation, falling back to empty buffer (might fail)', error);
         // Return empty buffer or handle error ?? Satori will crash with empty buffer.
-        // If we can't get the font, maybe we should just not generate the SVG? 
+        // If we can't get the font, maybe we should just not generate the SVG?
         // But this crashes the build.
-        // Let's hope fetch works. 
+        // Let's hope fetch works.
         throw error;
     }
 }
