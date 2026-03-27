@@ -9,15 +9,15 @@ const isMobile = variant === 'mobile';
 ---
 
 {isMobile ? (
-  <div class="mt-8 pt-6 border-t border-gray-100">
-    <div class="text-sm font-bold text-gray-500 mb-4 uppercase tracking-wider px-2">Language</div>
+  <div class="mt-8 pt-6 border-t border-[#FF6B35]/20">
+    <div class="text-sm font-bold text-gray-400 mb-4 uppercase tracking-wider px-2">Language</div>
     <div class="grid grid-cols-2 gap-3">
       {Object.entries(languages).map(([code, label]) => (
         <button
-          class="px-4 py-3 rounded-xl text-base font-medium border border-gray-200 text-gray-600 hover:border-blue-600 hover:text-blue-600 hover:bg-blue-50 transition-all lang-option mobile-lang-option text-center"
+          class="px-4 py-3 rounded-xl text-base font-medium border border-[#FF6B35]/30 text-gray-300 hover:border-[#FF6B35] hover:text-[#FF6B35] hover:bg-[#FF6B35]/10 transition-all lang-option mobile-lang-option text-center"
           data-lang={code}
           @click={`window.setLanguage && window.setLanguage('${code}'); currentLang = '${code.toUpperCase()}'; $dispatch('menu-close')`}
-          :class={`currentLang === '${code.toUpperCase()}' ? 'text-blue-600 bg-blue-50 border-blue-200' : ''`}
+          :class={`currentLang === '${code.toUpperCase()}' ? 'text-[#FF6B35] bg-[#FF6B35]/10 border-[#FF6B35]' : ''`}
         >
           {label}
         </button>
@@ -27,7 +27,7 @@ const isMobile = variant === 'mobile';
 ) : (
   <div class="relative ml-2 group">
     <button
-      class="flex items-center gap-1 px-2 py-1.5 rounded-full bg-gray-50 hover:bg-gray-100 text-gray-600 transition-colors outline-none"
+      class="flex items-center gap-1 px-2 py-1.5 rounded-full bg-[#1A1A1A] hover:bg-[#FF6B35]/10 text-gray-300 transition-colors outline-none"
       aria-label="Select Language"
     >
       <svg xmlns="http://www.w3.org/2000/svg" class="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" aria-hidden="true">
@@ -43,16 +43,16 @@ const isMobile = variant === 'mobile';
     </button>
 
     <div class="absolute right-0 pt-2 w-36 hidden group-hover:block transform origin-top-right transition-all">
-      <div class="bg-white rounded-xl shadow-xl border border-gray-100 py-1">
+      <div class="bg-[#1A1A1A] rounded-xl shadow-xl border border-[#FF6B35]/20 py-1">
         {Object.entries(languages).map(([code, label]) => (
           <button
-            class="w-full text-left px-3 py-1.5 text-xs text-gray-600 hover:bg-blue-50 hover:text-blue-600 transition-colors lang-option flex items-center justify-between group/item"
+            class="w-full text-left px-3 py-1.5 text-xs text-gray-300 hover:bg-[#FF6B35]/10 hover:text-[#FF6B35] transition-colors lang-option flex items-center justify-between group/item"
             data-lang={code}
             @click={`window.setLanguage && window.setLanguage('${code}'); currentLang = '${code.toUpperCase()}';`}
-            :class={`currentLang === '${code.toUpperCase()}' ? 'text-blue-600 bg-blue-50 border-blue-200' : ''`}
+            :class={`currentLang === '${code.toUpperCase()}' ? 'text-[#FF6B35] bg-[#FF6B35]/10' : ''`}
           >
             <span>{label}</span>
-            <svg xmlns="http://www.w3.org/2000/svg" class="w-3.5 h-3.5 text-blue-600 transition-opacity" :class={`currentLang === '${code.toUpperCase()}' ? 'opacity-100' : 'opacity-0'`} fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" aria-hidden="true">
+            <svg xmlns="http://www.w3.org/2000/svg" class="w-3.5 h-3.5 text-[#FF6B35] transition-opacity" :class={`currentLang === '${code.toUpperCase()}' ? 'opacity-100' : 'opacity-0'`} fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" aria-hidden="true">
               <path d="m5 13 4 4L19 7" />
             </svg>
           </button>

@@ -30,32 +30,32 @@ const {
 
 <div
   id="mobile-menu"
-  class="fixed inset-0 z-[100] w-screen h-screen bg-white md:hidden flex-col"
+  class="fixed inset-0 z-[100] w-screen h-screen bg-[#1A1A1A] md:hidden flex-col"
   x-cloak
   x-show="mobileOpen"
   x-transition.opacity.duration.200ms
   role="dialog" aria-modal="true" :aria-hidden="(!mobileOpen).toString()" aria-labelledby="mobile-menu-title"
 >
-  <div class="flex items-center justify-between px-6 h-20 border-b border-gray-100 shrink-0 bg-white">
+  <div class="flex items-center justify-between px-6 h-20 border-b border-[#FF6B35]/20 shrink-0 bg-[#1A1A1A]">
     <div class="flex items-center gap-3">
       {logoEnabled && logoSrc && <img src={logoSrc} alt="Logo" class="h-10 w-10 object-contain" />}
-      <span class="font-bold text-gray-900 text-xl">{labName}</span>
+      <span class="font-bold text-white text-xl">{labName}</span>
     </div>
     <button
       @click="$dispatch('menu-close')"
-      class="p-2 -mr-2 rounded-full text-gray-600 hover:bg-gray-100 transition-colors"
+      class="p-2 -mr-2 rounded-full text-gray-300 hover:bg-[#FF6B35] transition-colors"
       aria-label="Close menu"
     >
       <X className="w-8 h-8" />
     </button>
   </div>
 
-  <nav class="flex-1 overflow-y-auto px-6 py-8 flex flex-col gap-2 bg-white">
+  <nav class="flex-1 overflow-y-auto px-6 py-8 flex flex-col gap-2 bg-[#1A1A1A]">
     <HeaderNavLinks items={nav} mode="mobile" />
     {i18nEnabled && <LanguageSwitcher languages={languages} variant="mobile" />}
   </nav>
 
-  <div class="p-8 bg-gray-50 shrink-0 border-t border-gray-200">
-    <p class="text-sm text-gray-500 font-medium text-center">© {new Date().getFullYear()} {labName}</p>
+  <div class="p-8 bg-[#0F0F0F] shrink-0 border-t border-[#FF6B35]/20">
+    <p class="text-sm text-gray-400 font-medium text-center">© {new Date().getFullYear()} {labName}</p>
   </div>
 </div>

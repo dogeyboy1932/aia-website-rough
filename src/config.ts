@@ -1,4 +1,3 @@
-
 export const SITE = {
   website: 'https://aia-illinois.netlify.app/', // TODO: Update with actual URL if known
   author: 'AI Alignment @ Illinois',
@@ -74,7 +73,7 @@ export const DEFAULT_LANG: 'zh' | 'en' | 'ja' | 'ko' | 'fr' | 'de' | 'es' | 'ru'
 export const ResourcesUrl = "https://www.notion.so/Resources-31321c93aa7f80c3b556c584cefe4fb2?source=copy_link"
 
 export const LAYOUT_CONFIG = {
-  defaultFooterBg: 'bg-[#13294B]',
-  fallbackFooterColor: '#13294B',
+  defaultFooterBg: 'bg-[#0F0F0F]',
+  fallbackFooterColor: '#0F0F0F',
   ogSupportedPages: ['index', 'research', 'team', 'publications', 'news', 'join'] as const,
 };

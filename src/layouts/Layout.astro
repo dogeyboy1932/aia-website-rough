@@ -14,7 +14,7 @@ interface Props {
 
 const { title, description = SITE.description } = Astro.props;
 
-const backgroundStyle = `background: linear-gradient(to bottom, #ffffff 0%, #ffffff 50%, ${LAYOUT_CONFIG.fallbackFooterColor} 50%, ${LAYOUT_CONFIG.fallbackFooterColor} 100%) fixed no-repeat`;
+const backgroundStyle = `background: linear-gradient(to bottom, #0F0F0F 0%, #0F0F0F 50%, ${LAYOUT_CONFIG.fallbackFooterColor} 50%, ${LAYOUT_CONFIG.fallbackFooterColor} 100%) fixed no-repeat`;
 const pageTitle = title ?? SITE.labName;
 const ogImage = new URL('/og/index.png', Astro.url);
 ---

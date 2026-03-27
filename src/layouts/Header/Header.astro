@@ -11,7 +11,7 @@ const { nav, i18n } = SITE;
 ---
 
 <header
-  class="sticky top-0 z-50 w-full bg-white/80 backdrop-blur-md border-b border-gray-100 transition-colors duration-300"
+  class="sticky top-0 z-50 w-full bg-[#1A1A1A]/95 backdrop-blur-md border-b border-[#FF6B35]/50 shadow-[0_0_20px_rgba(255,107,53,0.1)] transition-colors duration-300"
   x-data={`{ mobileOpen: false, currentLang: '${defaultLang.toUpperCase()}' }`}
   x-init={`try { currentLang = (localStorage.getItem('preferred-lang') || '${defaultLang}').toUpperCase(); } catch (e) {} `}
   x-effect="document.body.classList.toggle('overflow-hidden', mobileOpen)"
@@ -24,12 +24,12 @@ const { nav, i18n } = SITE;
     <div class="flex justify-between items-center h-16">
       <!-- Logo & Name -->
       
-      <div class="flex items-center gap-3">  
+      <div class="flex items-center gap-3">
         <a href="/" class="flex items-center gap-2 group">
           {LOGO_IMAGE.enable && SITE.logo && <img src={SITE.logo} alt="Logo" class="h-8 w-8 object-contain" />}
-          
+
           <div class="flex flex-col sm:flex-row sm:items-end sm:gap-2 leading-tight">
-            <span class="font-bold text-gray-900 text-lg leading-tight group-hover:text-blue-600 transition-colors">
+            <span class="font-bold text-white text-lg leading-tight group-hover:text-[#FF6B35] group-hover:glow-orange transition-colors uppercase tracking-wide text-xs md:text-base">
               {SITE.labName}
             </span>
           </div>
@@ -44,9 +44,9 @@ const { nav, i18n } = SITE;
 
 
       <!-- Mobile Menu Button -->
-      <button 
-        id="mobile-menu-btn" 
-        class="md:hidden p-2 -mr-2 text-gray-600 hover:bg-gray-100 rounded-lg transition-colors z-[80] relative" 
+      <button
+        id="mobile-menu-btn"
+        class="md:hidden p-2 -mr-2 text-gray-300 hover:bg-[#FF6B35] rounded-lg transition-colors z-[80] relative"
         aria-label="Toggle menu"
         aria-controls="mobile-menu"
         x-bind:aria-expanded="mobileOpen.toString()"
