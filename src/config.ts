@@ -27,7 +27,7 @@ export const SITE = {
   nav: [
     { text: 'Home', link: '/', key: 'home' },
     { text: 'Get Involved', link: '/spring-2026', key: 'get_involved' },
-    { text: 'Team', link: '/about', key: 'team' },
+    { text: 'Team', link: '/team', key: 'team' },
     { text: 'Events', link: '/events', key: 'events' },
   ],
 

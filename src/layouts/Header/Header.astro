@@ -4,6 +4,7 @@ import { Menu, X } from 'lucide-react';
 import HeaderMobileMenu from './HeaderMobileMenu.astro';
 import HeaderNavLinks from './HeaderNavLinks.astro';
 import LanguageSwitcher from './LanguageSwitcher.astro';
+import InteractiveLogo from '../../components/InteractiveLogo';
 
 import { defaultLang, languages } from '../../i18n/ui';
 
@@ -17,39 +18,31 @@ const { nav, i18n } = SITE;
     try { currentLang = (localStorage.getItem('preferred-lang') || '${defaultLang}').toUpperCase(); } catch (e) {}
     window.addEventListener('scroll', () => { scrolled = window.scrollY > 20; });
   `}
-  x-effect="document.body.classList.toggle('overflow-hidden', mobileOpen)"
   @keydown.escape.window="mobileOpen = false"
-  @resize.window="if (window.innerWidth >= 768) mobileOpen = false"
+  @resize.window="if (window.innerWidth >= 1024) mobileOpen = false"
   @menu-close.window="mobileOpen = false"
   @language-change.window="currentLang = (($event.detail && $event.detail.lang) ? $event.detail.lang : '${defaultLang}').toUpperCase()"
   :class="scrolled ? 'shadow-lg shadow-[#FF5F05]/10 border-b border-[#FF5F05]/30' : 'border-b border-[#FF5F05]/10'"
 >
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-    <div class="flex justify-between items-center h-16">
+    <div class="flex justify-between items-center h-24">
       <!-- Logo & Name -->
       <div class="flex items-center gap-3">
-        <a href="/" class="flex items-center gap-3 group">
+        <div class="flex items-center gap-3" aria-label="Site logo and name">
           {LOGO_IMAGE.enable && SITE.logo && (
-            <div class="relative">
-              <img 
-                src={SITE.logo} 
-                alt="Logo" 
-                class="h-10 w-10 object-contain transition-transform duration-300 group-hover:scale-110" 
-              />
-              <div class="absolute inset-0 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300 bg-[#FF5F05]/20 blur-xl"></div>
-            </div>
+            <InteractiveLogo client:load src={SITE.logo} alt="Logo" />
           )}
 
           <div class="flex flex-col leading-tight">
-            <span class="font-bold text-white text-base md:text-lg leading-tight group-hover:text-[#FF5F05] transition-colors duration-300 uppercase tracking-wider">
+            <span class="font-bold text-white text-base md:text-xl leading-tight uppercase tracking-wider">
               {SITE.labName}
             </span>
           </div>
-        </a>
+        </div>
       </div>
 
       <!-- Desktop Navigation -->
-      <nav class="hidden md:flex gap-8 items-center">
+      <nav class="hidden lg:flex gap-8 items-center">
         <HeaderNavLinks items={nav} mode="desktop" />
         {i18n.enabled && <LanguageSwitcher languages={languages} />}
       </nav>
@@ -57,7 +50,7 @@ const { nav, i18n } = SITE;
       <!-- Mobile Menu Button -->
       <button
         id="mobile-menu-btn"
-        class="md:hidden relative p-2 -mr-2 text-gray-300 hover:text-[#FF5F05] rounded-lg transition-all duration-300 z-[80] group"
+        class="lg:hidden relative p-2 -mr-2 text-gray-300 hover:text-[#FF5F05] rounded-lg transition-all duration-300 z-[80] group"
         aria-label="Toggle menu"
         aria-controls="mobile-menu"
         x-bind:aria-expanded="mobileOpen.toString()"
@@ -78,8 +71,5 @@ const { nav, i18n } = SITE;
     nav={nav}
     i18nEnabled={i18n.enabled}
     languages={languages}
-    logoEnabled={LOGO_IMAGE.enable}
-    logoSrc={SITE.logo}
-    labName={SITE.labName}
   />
 </header>

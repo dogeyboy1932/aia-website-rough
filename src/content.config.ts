@@ -62,6 +62,7 @@ const team = defineCollection({
     avatar: z.string().optional(),
     discord: z.string().optional(),
     email: z.string().optional(),
+    linkedin: z.string().url().optional(),
     weight: z.number().default(100),
   }),
 });
