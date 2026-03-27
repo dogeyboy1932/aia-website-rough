@@ -73,7 +73,7 @@ export const DEFAULT_LANG: 'zh' | 'en' | 'ja' | 'ko' | 'fr' | 'de' | 'es' | 'ru'
 export const ResourcesUrl = "https://www.notion.so/Resources-31321c93aa7f80c3b556c584cefe4fb2?source=copy_link"
 
 export const LAYOUT_CONFIG = {
-  defaultFooterBg: 'bg-[#0F0F0F]',
-  fallbackFooterColor: '#0F0F0F',
+  defaultFooterBg: 'bg-[#0A0F1A]',
+  fallbackFooterColor: '#0A0F1A',
   ogSupportedPages: ['index', 'research', 'team', 'publications', 'news', 'join'] as const,
 };
