@@ -14,7 +14,7 @@ interface Props {
 
 const { title, description = SITE.description } = Astro.props;
 
-const backgroundStyle = `background: linear-gradient(to bottom, #0F0F0F 0%, #0F0F0F 50%, ${LAYOUT_CONFIG.fallbackFooterColor} 50%, ${LAYOUT_CONFIG.fallbackFooterColor} 100%) fixed no-repeat`;
+const backgroundStyle = `background: linear-gradient(135deg, #0A0F1A 0%, #111827 50%, #0A0F1A 100%) fixed no-repeat`;
 const pageTitle = title ?? SITE.labName;
 const ogImage = new URL('/og/index.png', Astro.url);
 ---
@@ -29,6 +29,7 @@ const ogImage = new URL('/og/index.png', Astro.url);
     <meta name="viewport" content="width=device-width" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="generator" content={Astro.generator} />
+    <meta name="theme-color" content="#FF5F05" />
     
     <title>{pageTitle}</title>
 
@@ -54,7 +55,7 @@ const ogImage = new URL('/og/index.png', Astro.url);
     <script type="module" src={i18nInitScriptUrl}></script>
   </head>
   
-  <body class="min-h-screen flex flex-col">
+  <body class="min-h-screen flex flex-col bg-[#0A0F1A]">
     <Header />
 
     <main class="flex-grow" data-pagefind-body>

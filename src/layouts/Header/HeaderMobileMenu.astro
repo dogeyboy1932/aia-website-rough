@@ -30,32 +30,54 @@ const {
 
 <div
   id="mobile-menu"
-  class="fixed inset-0 z-[100] w-screen h-screen bg-[#1A1A1A] md:hidden flex-col"
+  class="fixed inset-0 z-[100] w-screen h-screen bg-[#0A0F1A]/95 backdrop-blur-xl md:hidden flex-col"
   x-cloak
   x-show="mobileOpen"
-  x-transition.opacity.duration.200ms
-  role="dialog" aria-modal="true" :aria-hidden="(!mobileOpen).toString()" aria-labelledby="mobile-menu-title"
+  x-transition:enter="transition ease-out duration-300"
+  x-transition:enter-start="opacity-0"
+  x-transition:enter-end="opacity-100"
+  x-transition:leave="transition ease-in duration-200"
+  x-transition:leave-start="opacity-100"
+  x-transition:leave-end="opacity-0"
+  role="dialog" 
+  aria-modal="true" 
+  :aria-hidden="(!mobileOpen).toString()" 
+  aria-labelledby="mobile-menu-title"
 >
-  <div class="flex items-center justify-between px-6 h-20 border-b border-[#FF6B35]/20 shrink-0 bg-[#1A1A1A]">
+  <!-- Decorative orbs -->
+  <div class="absolute top-0 right-0 w-64 h-64 rounded-full opacity-20" style="background: radial-gradient(circle, rgba(255, 95, 5, 0.4) 0%, transparent 70%); filter: blur(60px);"></div>
+  <div class="absolute bottom-0 left-0 w-80 h-80 rounded-full opacity-30" style="background: radial-gradient(circle, rgba(19, 41, 75, 0.6) 0%, transparent 70%); filter: blur(80px);"></div>
+
+  <!-- Header -->
+  <div class="relative flex items-center justify-between px-6 h-20 border-b border-[#FF5F05]/20 shrink-0">
     <div class="flex items-center gap-3">
-      {logoEnabled && logoSrc && <img src={logoSrc} alt="Logo" class="h-10 w-10 object-contain" />}
-      <span class="font-bold text-white text-xl">{labName}</span>
+      {logoEnabled && logoSrc && (
+        <div class="relative">
+          <img src={logoSrc} alt="Logo" class="h-10 w-10 object-contain" />
+          <div class="absolute inset-0 rounded-full bg-[#FF5F05]/20 blur-xl opacity-50"></div>
+        </div>
+      )}
+      <span class="font-bold text-white text-xl tracking-wider">{labName}</span>
     </div>
     <button
       @click="$dispatch('menu-close')"
-      class="p-2 -mr-2 rounded-full text-gray-300 hover:bg-[#FF6B35] transition-colors"
+      class="p-2 -mr-2 rounded-full text-gray-300 hover:text-white hover:bg-[#FF5F05]/20 transition-all duration-300"
       aria-label="Close menu"
     >
       <X className="w-8 h-8" />
     </button>
   </div>
 
-  <nav class="flex-1 overflow-y-auto px-6 py-8 flex flex-col gap-2 bg-[#1A1A1A]">
+  <!-- Navigation Links -->
+  <nav class="relative flex-1 overflow-y-auto px-6 py-8 flex flex-col gap-2 custom-scrollbar">
     <HeaderNavLinks items={nav} mode="mobile" />
     {i18nEnabled && <LanguageSwitcher languages={languages} variant="mobile" />}
   </nav>
 
-  <div class="p-8 bg-[#0F0F0F] shrink-0 border-t border-[#FF6B35]/20">
-    <p class="text-sm text-gray-400 font-medium text-center">© {new Date().getFullYear()} {labName}</p>
+  <!-- Footer -->
+  <div class="relative p-8 shrink-0 border-t border-[#FF5F05]/20">
+    <p class="text-sm text-gray-400 font-medium text-center">
+      &copy; {new Date().getFullYear()} <span class="text-[#FF5F05]">{labName}</span>
+    </p>
   </div>
 </div>

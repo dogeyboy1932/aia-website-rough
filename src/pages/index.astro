@@ -1,8 +1,10 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import { getCollection } from 'astro:content';
-import { ChevronDown } from 'lucide-react';
+import { ChevronDown, ArrowRight, Sparkles, Shield, Brain, Zap } from 'lucide-react';
 import { SITE } from '../config';
+import { GradientText, SplitText, FadeIn } from '../components/AnimatedText';
+import { FloatingOrbs, ParticleField } from '../components/AuroraBackground';
 
 const papers = (await getCollection('publications'))
   .filter(p => p.data.type === 'paper' && p.data.featured)
@@ -12,103 +14,189 @@ const papers = (await getCollection('publications'))
 
 <Layout title="Home">
   <!-- Hero Section -->
-  <section class="relative h-screen min-h-[600px] flex items-center justify-center overflow-hidden">
-    <!-- Background Image -->
+  <section class="relative min-h-screen flex items-center justify-center overflow-hidden">
+    <!-- Animated Background -->
     <div class="absolute inset-0 z-0">
+      <FloatingOrbs client:load />
+      <ParticleField client:load particleCount={40} color="#FF5F05" />
+      
       {SITE.hero.image ? (
         <img
-          class="w-full h-full object-cover"
+          class="w-full h-full object-cover opacity-30"
           src={SITE.hero.image}
           alt={SITE.hero.title}
           loading="eager"
           decoding="sync"
         />
-      ) : (
-        <div class="w-full h-full bg-gradient-to-br from-[#0F0F0F] to-[#1A1A1A]"></div>
-      )}
-      <!-- Dark Gradient Overlay for Readability -->
-      <div class="absolute inset-0 bg-gradient-to-r from-[#0F0F0F]/95 via-[#0F0F0F]/70 to-transparent"></div>
+      ) : null}
+      
+      <!-- Gradient overlays -->
+      <div class="absolute inset-0 bg-gradient-to-b from-[#0A0F1A] via-[#0A0F1A]/80 to-[#0A0F1A]"></div>
+      <div class="absolute inset-0 bg-gradient-to-r from-[#0A0F1A] via-transparent to-[#0A0F1A]/50"></div>
     </div>
 
     <!-- Content -->
-    <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
-      <div class="max-w-3xl text-left">
-        <h1 class="text-5xl font-extrabold text-white sm:text-6xl md:text-7xl mb-6 shadow-none leading-tight tracking-tight">
-          {SITE.hero.title}
-        </h1>
-        <p class="mt-4 text-xl text-gray-300 sm:max-w-2xl md:text-2xl leading-relaxed">
-          {SITE.hero.subtitle}
-        </p>
-        <div class="mt-10 flex flex-wrap gap-4">
-          <a href="/spring-2026" class="flex items-center justify-center px-8 py-4 bg-[#FF6B35] text-white text-lg font-bold uppercase tracking-wider border border-[#FF6B35] hover:shadow-[0_0_30px_rgba(255,107,53,0.6),inset_0_0_20px_rgba(255,107,53,0.2)] transition-all duration-300 shadow-[0_0_20px_rgba(255,107,53,0.3)]">
-            Join Now
-          </a>
-          <a href="/about" class="flex items-center justify-center px-8 py-4 border-2 border-[#FF6B35] text-lg font-bold uppercase tracking-wider text-white hover:shadow-[0_0_30px_rgba(255,107,53,0.4),inset_0_0_20px_rgba(255,107,53,0.1)] transition-all duration-300 backdrop-blur-sm">
-            About
-          </a>
-        </div>
+    <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full py-20">
+      <div class="max-w-4xl mx-auto text-center">
+        <!-- Badge -->
+        <FadeIn client:load delay={0}>
+          <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-[#FF5F05]/10 border border-[#FF5F05]/30 mb-8">
+            <Sparkles className="w-4 h-4 text-[#FF5F05]" />
+            <span class="text-sm font-medium text-[#FF5F05] uppercase tracking-wider">University of Illinois</span>
+          </div>
+        </FadeIn>
+
+        <!-- Title -->
+        <FadeIn client:load delay={100}>
+          <h1 class="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-black text-white mb-6 leading-tight tracking-tight">
+            <GradientText client:load text="AI Alignment" animate={true} />
+            <br />
+            <span class="text-white">@ Illinois</span>
+          </h1>
+        </FadeIn>
+
+        <!-- Subtitle -->
+        <FadeIn client:load delay={200}>
+          <p class="mt-6 text-xl md:text-2xl text-gray-300 max-w-3xl mx-auto leading-relaxed">
+            A community of <span class="text-[#FF5F05] font-semibold">researchers</span>, <span class="text-[#FF9E1B] font-semibold">philosophers</span>, and <span class="text-[#FF5F05] font-semibold">builders</span> focused on safe, aligned, and human-centered artificial intelligence
+          </p>
+        </FadeIn>
+
+        <!-- CTAs -->
+        <FadeIn client:load delay={300}>
+          <div class="mt-12 flex flex-wrap justify-center gap-4">
+            <a href="/spring-2026" class="btn-primary flex items-center gap-2 group">
+              Join Now
+              <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform duration-300" />
+            </a>
+            <a href="/about" class="btn-secondary flex items-center gap-2">
+              Meet the Team
+            </a>
+          </div>
+        </FadeIn>
+
+        <!-- Stats -->
+        <FadeIn client:load delay={400}>
+          <div class="mt-20 grid grid-cols-3 gap-8 max-w-2xl mx-auto">
+            <div class="text-center">
+              <div class="text-3xl md:text-4xl font-black text-[#FF5F05] glow-orange">3</div>
+              <div class="text-sm text-gray-400 uppercase tracking-wider mt-1">Programs</div>
+            </div>
+            <div class="text-center">
+              <div class="text-3xl md:text-4xl font-black text-[#FF5F05] glow-orange">50+</div>
+              <div class="text-sm text-gray-400 uppercase tracking-wider mt-1">Members</div>
+            </div>
+            <div class="text-center">
+              <div class="text-3xl md:text-4xl font-black text-[#FF5F05] glow-orange">UIUC</div>
+              <div class="text-sm text-gray-400 uppercase tracking-wider mt-1">Based</div>
+            </div>
+          </div>
+        </FadeIn>
       </div>
     </div>
 
     <!-- Scroll Indicator -->
-    <div class="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce text-[#FF6B35]/50">
-      <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"></path>
-      </svg>
+    <div class="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
+      <div class="p-2 rounded-full border border-[#FF5F05]/30 text-[#FF5F05]/70">
+        <ChevronDown className="w-6 h-6" />
+      </div>
     </div>
   </section>
 
   <!-- Our Foci Section -->
-  <section class="py-20 bg-[#1A1A1A] text-white border-t border-[#FF6B35]/20">
-    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-      <h2 class="text-5xl md:text-6xl font-black text-white mb-16 uppercase tracking-tight glow-orange-lg">Our Foci</h2>
+  <section class="relative py-24 overflow-hidden">
+    <!-- Background decoration -->
+    <div class="absolute inset-0 pointer-events-none">
+      <div class="absolute top-1/4 right-0 w-96 h-96 rounded-full opacity-10" style="background: radial-gradient(circle, rgba(255, 95, 5, 0.5) 0%, transparent 70%); filter: blur(80px);"></div>
+      <div class="absolute bottom-1/4 left-0 w-80 h-80 rounded-full opacity-20" style="background: radial-gradient(circle, rgba(19, 41, 75, 0.6) 0%, transparent 70%); filter: blur(60px);"></div>
+    </div>
 
-      <div class="space-y-4">
+    <div class="relative max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+      <FadeIn client:load>
+        <h2 class="text-4xl md:text-5xl lg:text-6xl font-black text-white mb-6 uppercase tracking-tight text-center">
+          Our <GradientText client:load text="Focus Areas" />
+        </h2>
+        <p class="text-gray-400 text-lg text-center max-w-2xl mx-auto mb-16">
+          Exploring the critical challenges in AI safety through education, research, and community
+        </p>
+      </FadeIn>
+
+      <div class="space-y-6">
         <!-- Item 1 -->
-        <details class="group border-b border-[#FF6B35]/30 pb-4" open>
-            <summary class="flex justify-between items-center py-6 cursor-pointer list-none text-2xl md:text-3xl font-black text-gray-100 hover:text-[#FF6B35] transition-colors uppercase tracking-wide">
-                <span>Governance, Safety & Strategy</span>
-                <span class="transition-transform group-open:rotate-180">
-                    <ChevronDown className="w-8 h-8" />
+        <FadeIn client:load delay={100}>
+          <details class="group glass rounded-2xl overflow-hidden card-hover" open>
+            <summary class="flex justify-between items-center p-6 md:p-8 cursor-pointer list-none">
+              <div class="flex items-center gap-4">
+                <div class="p-3 rounded-xl bg-[#FF5F05]/20">
+                  <Shield className="w-6 h-6 text-[#FF5F05]" />
+                </div>
+                <span class="text-xl md:text-2xl font-black text-white group-hover:text-[#FF5F05] transition-colors uppercase tracking-wide">
+                  Governance, Safety & Strategy
                 </span>
+              </div>
+              <span class="transition-transform group-open:rotate-180 text-[#FF5F05]">
+                <ChevronDown className="w-6 h-6" />
+              </span>
             </summary>
-            <div class="pb-8 text-lg text-gray-400 leading-relaxed">
-                Our <strong class="text-gray-100">Foundations of AI Safety</strong> certification course introduces the governance and strategy landscape around advanced AI: how institutions, incentives, and policy shape risk, and which levers might actually reduce catastrophic outcomes.
+            <div class="px-6 md:px-8 pb-8 text-lg text-gray-400 leading-relaxed border-t border-[#FF5F05]/10 pt-6">
+              Our <strong class="text-[#FF5F05]">Foundations of AI Safety</strong> certification course introduces the governance and strategy landscape around advanced AI: how institutions, incentives, and policy shape risk, and which levers might actually reduce catastrophic outcomes.
             </div>
-        </details>
+          </details>
+        </FadeIn>
 
         <!-- Item 2 -->
-        <details class="group border-b border-[#FF6B35]/30 pb-4">
-            <summary class="flex justify-between items-center py-6 cursor-pointer list-none text-2xl md:text-3xl font-black text-gray-100 hover:text-[#FF6B35] transition-colors uppercase tracking-wide">
-                <span>Technical Alignment</span>
-                <span class="transition-transform group-open:rotate-180">
-                    <ChevronDown className="w-8 h-8" />
+        <FadeIn client:load delay={200}>
+          <details class="group glass rounded-2xl overflow-hidden card-hover">
+            <summary class="flex justify-between items-center p-6 md:p-8 cursor-pointer list-none">
+              <div class="flex items-center gap-4">
+                <div class="p-3 rounded-xl bg-[#FF5F05]/20">
+                  <Brain className="w-6 h-6 text-[#FF5F05]" />
+                </div>
+                <span class="text-xl md:text-2xl font-black text-white group-hover:text-[#FF5F05] transition-colors uppercase tracking-wide">
+                  Technical Alignment
                 </span>
+              </div>
+              <span class="transition-transform group-open:rotate-180 text-[#FF5F05]">
+                <ChevronDown className="w-6 h-6" />
+              </span>
             </summary>
-            <div class="pb-8 text-lg text-gray-400 leading-relaxed">
-                In our <strong class="text-gray-100">Alignment Fellowship</strong>, we dive deep into technical approaches to alignment, including interpretability, robustness, evaluations, and scalable oversight. Our goal is to distinctively model detailed threat scenarios and build the practical competence needed to make AI systems safe and reliable.
+            <div class="px-6 md:px-8 pb-8 text-lg text-gray-400 leading-relaxed border-t border-[#FF5F05]/10 pt-6">
+              In our <strong class="text-[#FF5F05]">Alignment Fellowship</strong>, we dive deep into technical approaches to alignment, including interpretability, robustness, evaluations, and scalable oversight. Our goal is to distinctively model detailed threat scenarios and build the practical competence needed to make AI systems safe and reliable.
             </div>
-        </details>
+          </details>
+        </FadeIn>
 
         <!-- Item 3 -->
-        <details class="group border-b border-[#FF6B35]/30 pb-4">
-            <summary class="flex justify-between items-center py-6 cursor-pointer list-none text-2xl md:text-3xl font-black text-gray-100 hover:text-[#FF6B35] transition-colors uppercase tracking-wide">
-                <span>X-Risk & Long-Term Impact</span>
-                <span class="transition-transform group-open:rotate-180">
-                    <ChevronDown className="w-8 h-8" />
+        <FadeIn client:load delay={300}>
+          <details class="group glass rounded-2xl overflow-hidden card-hover">
+            <summary class="flex justify-between items-center p-6 md:p-8 cursor-pointer list-none">
+              <div class="flex items-center gap-4">
+                <div class="p-3 rounded-xl bg-[#FF5F05]/20">
+                  <Zap className="w-6 h-6 text-[#FF5F05]" />
+                </div>
+                <span class="text-xl md:text-2xl font-black text-white group-hover:text-[#FF5F05] transition-colors uppercase tracking-wide">
+                  X-Risk & Long-Term Impact
                 </span>
+              </div>
+              <span class="transition-transform group-open:rotate-180 text-[#FF5F05]">
+                <ChevronDown className="w-6 h-6" />
+              </span>
             </summary>
-            <div class="pb-8 text-lg text-gray-400 leading-relaxed">
-                We explore the long-run trajectory of technology and the potential catastrophic risks of advanced AI. Our <strong class="text-gray-100">Singularity Reading Club (SRC)</strong> draws from science fiction and philosophy to understand the scale of the challenge and the urgency of meaningful action.
+            <div class="px-6 md:px-8 pb-8 text-lg text-gray-400 leading-relaxed border-t border-[#FF5F05]/10 pt-6">
+              We explore the long-run trajectory of technology and the potential catastrophic risks of advanced AI. Our <strong class="text-[#FF5F05]">Singularity Reading Club (SRC)</strong> draws from science fiction and philosophy to understand the scale of the challenge and the urgency of meaningful action.
             </div>
-        </details>
+          </details>
+        </FadeIn>
       </div>
 
-      <div class="mt-16 text-center">
-        <a href="/spring-2026" class="inline-flex items-center justify-center px-8 py-4 bg-[#FF6B35] text-white text-lg font-bold uppercase tracking-wider border border-[#FF6B35] hover:shadow-[0_0_30px_rgba(255,107,53,0.6),inset_0_0_20px_rgba(255,107,53,0.2)] transition-all duration-300 shadow-[0_0_20px_rgba(255,107,53,0.3)]">
+      <FadeIn client:load delay={400}>
+        <div class="mt-16 text-center">
+          <a href="/spring-2026" class="btn-primary inline-flex items-center gap-2 group">
             Spring 2026 Information
-        </a>
-      </div>
+            <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform duration-300" />
+          </a>
+        </div>
+      </FadeIn>
     </div>
   </section>
 </Layout>
