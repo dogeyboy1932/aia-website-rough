@@ -56,10 +56,10 @@ const books = defineCollection({
 
 const team = defineCollection({
   loader: glob({ pattern: "**/*.{md,mdx}", base: "./src/content/team" }),
-  schema: ({ image }) => z.object({
+  schema: z.object({
     name: z.string(),
     title: z.string(),
-    avatar: image().optional(),
+    avatar: z.string().optional(),
     discord: z.string().optional(),
     email: z.string().optional(),
     weight: z.number().default(100),

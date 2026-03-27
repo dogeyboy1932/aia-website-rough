@@ -1,7 +1,7 @@
 ---
 name: 'Rohan Thakkar'
 title: 'Membership Director'
-avatar: ./../../assets/rohan_thakkar.JPG
+avatar: 'rohan-thakkar.jpg'
 email: 'rthak24@illinois.edu'
 discord: '@rt552'
 weight: 40

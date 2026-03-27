@@ -1,7 +1,7 @@
 ---
 name: 'Daniel Elliott'
 title: 'Co-President'
-avatar: ./../../assets/daniel_elliot.jpg
+avatar: 'daniel-elliott.jpg'
 email: 'dje4@illinois.edu'
 discord: '@daemonmatar'
 weight: 10

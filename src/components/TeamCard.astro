@@ -4,14 +4,15 @@ import type { CollectionEntry } from 'astro:content';
 
 import { Mail } from 'lucide-react';
 
-import { Image } from 'astro:assets';
-
 interface Props {
   member: CollectionEntry<'team'>;
 }
 
 const { member } = Astro.props;
 const { name, title, avatar, email, discord } = member.data;
+
+const TEAM_AVATAR_PUBLIC_DIR = '/assets/TeamPfps';
+const avatarSrc = avatar ? `${TEAM_AVATAR_PUBLIC_DIR}/${avatar}` : undefined;
 ---
 
 <div class="flex flex-col items-center text-center">
@@ -19,15 +20,13 @@ const { name, title, avatar, email, discord } = member.data;
   <div class="relative w-48 h-48 mb-4 rounded-full overflow-hidden bg-gray-100 border-4 border-white/10 flex items-center justify-center shadow-lg">
     <!-- Using a div wrapper instead of link since individual team pages might not be needed/supported with reduced schema -->
     <div class="block w-full h-full">
-      {avatar ? (
-        <Image 
-          src={avatar} 
-          alt={name} 
-          class="w-full h-full object-cover transition-transform duration-500" 
-          width={400}
-          height={400}
-          format="webp"
+      {avatarSrc ? (
+        <img
+          src={avatarSrc}
+          alt={name}
+          class="w-full h-full object-cover transition-transform duration-500"
           loading="lazy"
+          decoding="async"
         />
       ) : (
         <div class="w-full h-full flex items-center justify-center bg-[#13294B] text-[#ff8c69] text-4xl font-bold">

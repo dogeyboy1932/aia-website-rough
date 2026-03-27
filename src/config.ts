@@ -1,4 +1,3 @@
-import heroImage from './assets/hero-image-2026.jpg';
 
 export const SITE = {
   website: 'https://aia-illinois.netlify.app/', // TODO: Update with actual URL if known
@@ -13,8 +12,8 @@ export const SITE = {
   // Lab Info
   labName: 'AI Alignment @ Illinois',
   university: 'University of Illinois Urbana-Champaign',
-  logo: '/assets/aia-logo.png', // Logo path
-  avatar: '/assets/logo-real.svg', // Avatar for SEO/Schema
+  logo: './assets/aia-logo.png', // Logo path
+  avatar: './assets/logo-real.svg', // Avatar for SEO/Schema
   email: 'contact@aiaillinois.org', // Placeholder
 
   // Hero Section (Home Page)
@@ -22,7 +21,7 @@ export const SITE = {
     title: 'AI Alignment @ Illinois',
     subtitle: 'A community at UIUC of researchers, philosophers, and builders focused on safe, aligned, and human-centered artificial intelligence',
     action: 'Join Now',
-    image: heroImage,
+    image: './assets/hero-image-2026.jpg',
   },
 
   // Navigation

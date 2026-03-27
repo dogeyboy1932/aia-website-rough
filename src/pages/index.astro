@@ -1,8 +1,7 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import { getCollection } from 'astro:content';
-import { Image } from 'astro:assets';
-import { ArrowRight, ChevronDown } from 'lucide-react';
+import { ChevronDown } from 'lucide-react';
 import { SITE } from '../config';
 
 const papers = (await getCollection('publications'))
@@ -17,17 +16,12 @@ const papers = (await getCollection('publications'))
     <!-- Background Image -->
     <div class="absolute inset-0 z-0">
       {SITE.hero.image ? (
-        <Image 
+        <img 
           class="w-full h-full object-cover" 
           src={SITE.hero.image} 
           alt={SITE.hero.title}
           loading="eager"
-          fetchpriority="high"
           decoding="sync"
-          quality={60}
-          format="webp"
-          widths={[640, 1024, 1920]}
-          sizes="100vw"
         />
       ) : (
         <div class="w-full h-full bg-gradient-to-br from-gray-900 to-gray-800"></div>
@@ -75,7 +69,7 @@ const papers = (await getCollection('publications'))
             <summary class="flex justify-between items-center py-6 cursor-pointer list-none text-2xl font-medium hover:text-[#FF5F05] transition-colors">
                 <span>Governance, Safety, and Strategy</span>
                 <span class="transition-transform group-open:rotate-180">
-                    <ChevronDown class="w-8 h-8" />
+                    <ChevronDown className="w-8 h-8" />
                 </span>
             </summary>
             <div class="pb-8 text-lg text-gray-300 leading-relaxed">
@@ -88,7 +82,7 @@ const papers = (await getCollection('publications'))
             <summary class="flex justify-between items-center py-6 cursor-pointer list-none text-2xl font-medium hover:text-[#FF5F05] transition-colors">
                 <span>Technical Alignment</span>
                 <span class="transition-transform group-open:rotate-180">
-                    <ChevronDown class="w-8 h-8" />
+                    <ChevronDown className="w-8 h-8" />
                 </span>
             </summary>
             <div class="pb-8 text-lg text-gray-300 leading-relaxed">
@@ -101,7 +95,7 @@ const papers = (await getCollection('publications'))
             <summary class="flex justify-between items-center py-6 cursor-pointer list-none text-2xl font-medium hover:text-[#FF5F05] transition-colors">
                 <span>X-Risk and Long-Term Impact</span>
                 <span class="transition-transform group-open:rotate-180">
-                    <ChevronDown class="w-8 h-8" />
+                    <ChevronDown className="w-8 h-8" />
                 </span>
             </summary>
             <div class="pb-8 text-lg text-gray-300 leading-relaxed">
