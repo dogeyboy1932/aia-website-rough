@@ -34,7 +34,7 @@ const isDesktop = mode === 'desktop';
       return (
         <a
           href={item.link}
-          class="text-sm font-medium text-gray-300 hover:text-[#FF6B35] transition-colors"
+          class="text-xs md:text-sm font-bold text-gray-300 hover:text-[#FF6B35] transition-colors uppercase tracking-widest"
           data-i18n-key={`nav.${item.key}`}
         >
           {item.text}
@@ -45,7 +45,7 @@ const isDesktop = mode === 'desktop';
     return (
       <a
         href={item.link}
-        class="flex items-center justify-between w-full py-4 px-4 text-lg font-medium text-gray-100 hover:text-[#FF6B35] hover:bg-[#FF6B35]/10 rounded-xl transition-all border-b border-[#FF6B35]/10 last:border-0"
+        class="flex items-center justify-between w-full py-4 px-4 text-lg font-black text-gray-100 hover:text-[#FF6B35] hover:bg-[#FF6B35]/10 transition-all border-b border-[#FF6B35]/10 last:border-0 uppercase tracking-wide"
         data-i18n-key={`nav.${item.key}`}
         @click="$dispatch('menu-close')"
       >
